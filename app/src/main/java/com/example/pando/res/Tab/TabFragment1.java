@@ -1,16 +1,13 @@
 package com.example.pando.res.Tab;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.pando.res.MySQL.Downloader;
 import com.example.pando.res.R;
 import com.example.pando.res.urlWebServer;
@@ -29,7 +26,6 @@ public class TabFragment1 extends Fragment {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(llm);
 
-
         final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.sw_data);
         swipeRefreshLayout.setColorSchemeResources(
                 R.color.blue,       //This method will rotate
@@ -43,7 +39,6 @@ public class TabFragment1 extends Fragment {
         swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.yellow);
 
         new Downloader(getActivity(), Server+"osk/GET_JSON/getspdata.php",rv,swipeRefreshLayout).execute();
-
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
