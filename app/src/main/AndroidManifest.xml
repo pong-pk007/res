@@ -33,22 +33,22 @@
             android:value="AIzaSyByzuctts_ConjRebPDROsUC_x2o7hNrpQ" />
 
         <activity android:name=".DetailActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DetailActivity" />
-
         </activity>
-
         <activity android:name=".Contact">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Contact" />
+        </activity>
+        <activity android:name=".ListActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListActivity" />
 
         </activity>
-
-
     </application>
 
 </manifest>

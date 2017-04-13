@@ -1,13 +1,23 @@
 package com.example.pando.res.Tab;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.pando.res.ListActivity;
 import com.example.pando.res.MySQL.Downloader;
 import com.example.pando.res.R;
 import com.example.pando.res.urlWebServer;
@@ -16,10 +26,38 @@ import com.example.pando.res.urlWebServer;
 public class TabFragment1 extends Fragment {
 
     private static String Server = new urlWebServer().name();
+    private TextView more;
+    private ListView listView = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.tab_fragment_1, container, false);
+        final View rootView = inflater.inflate(R.layout.tab_fragment_1, container, false);
+
+        listView = new ListView(getActivity());
+
+        String[] item = {"กันทรารมย์","ยางชุม","วังหิน"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),R.layout.dialog_item, R.id.txtitem, item);
+
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ViewGroup vg = (ViewGroup)view;
+                TextView txt = (TextView) rootView.findViewById(R.id.txtitem);
+
+                Toast.makeText(getActivity(),txt.getText().toString(),Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+        more = (TextView) rootView.findViewById(R.id.more);
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogListView(rootView);
+            }
+        });
 
         final RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rvdata);
         rv.setHasFixedSize(true);
@@ -50,6 +88,32 @@ public class TabFragment1 extends Fragment {
 
 
         return rootView;
+
+    }
+
+    public void showDialogListView(View view){
+
+        AlertDialog.Builder builder=new
+                AlertDialog.Builder(getActivity());
+
+        builder.setCancelable(true);
+        builder.setTitle("เลือกพื้นที่");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getActivity(), ListActivity.class);
+                startActivity(i);
+            }
+        });
+
+        builder.setView(listView);
+
+        AlertDialog dialog=builder.create();
+
+        dialog.show();
+
+
 
     }
 }
