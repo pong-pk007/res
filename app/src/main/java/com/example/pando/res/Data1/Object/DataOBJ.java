@@ -1,4 +1,4 @@
-package com.example.pando.res.Object;
+package com.example.pando.res.Data1.Object;
 
 /**
  * Created by pongs_000 on 19/12/2559.
@@ -7,7 +7,7 @@ package com.example.pando.res.Object;
 public class DataOBJ {
 
 
-    String owner,telephone,image,latitude,longitude,name_seeds,price,address,area;
+    String owner,telephone,image,latitude,longitude,address,area;
 
     public String getArea() {
         return area;
@@ -55,22 +55,6 @@ public class DataOBJ {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
-    }
-
-    public String getName_seeds() {
-        return name_seeds;
-    }
-
-    public void setName_seeds(String name_seeds) {
-        this.name_seeds = name_seeds;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
     }
 
     public String getAddress() {

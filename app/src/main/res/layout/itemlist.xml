@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
@@ -12,17 +13,16 @@
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp">
 
-
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relativeLayout">
 
         <ImageView
-            android:layout_width="220dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             app:srcCompat="?android:attr/alertDialogIcon"
-            android:id="@+id/img"
+            android:id="@+id/imglist"
             android:layout_weight="1"
             android:scaleType="centerCrop"
             android:layout_alignParentTop="true"
@@ -40,7 +40,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/namelist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignWithParentIfMissing="true"
@@ -67,14 +67,15 @@
             android:layout_height="wrap_content"
             android:background="#40000000"
             android:id="@+id/linearLayout4"
-            android:layout_marginBottom="30dp"
-            android:layout_alignBottom="@+id/img"
+            android:layout_alignBottom="@+id/imglist"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true">
             <TextView
-                android:id="@+id/address"
+                android:id="@+id/addresslist"
                 android:paddingRight="5dp"
-                android:layout_width="221dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
                 android:paddingTop="5dp"
@@ -85,13 +86,6 @@
                 android:paddingLeft="10dp" />
         </LinearLayout>
 
-
-
-
     </RelativeLayout>
-
-
-
-
 
 </android.support.v7.widget.CardView>

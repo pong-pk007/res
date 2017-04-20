@@ -1,4 +1,4 @@
-package com.example.pando.res.MySQL;
+package com.example.pando.res.Data1.MySQL;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -6,8 +6,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.example.pando.res.Object.DataOBJ;
-import com.example.pando.res.UI.CustomAdapter;
+import com.example.pando.res.Data1.Object.DataOBJ;
+import com.example.pando.res.Data1.UI.CustomAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -73,8 +73,6 @@ public class DataParser extends AsyncTask<Void,Void,Boolean> {
                 String address = jo.getString("address");
                 String lat = jo.getString("latitude");
                 String longt = jo.getString("longitude");
-                String price = jo.getString("price");
-                String name_seeds = jo.getString("name_seeds");
                 String area = jo.getString("area");
 
                 dataOBJ = new DataOBJ();
@@ -85,8 +83,6 @@ public class DataParser extends AsyncTask<Void,Void,Boolean> {
                 dataOBJ.setAddress(address);
                 dataOBJ.setLatitude(lat);
                 dataOBJ.setLongitude(longt);
-                dataOBJ.setPrice(price);
-                dataOBJ.setName_seeds(name_seeds);
                 dataOBJ.setArea(area);
 
                 Datas.add(dataOBJ);

@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.pando.res.UI.PicassoClient;
+import com.example.pando.res.Data1.UI.PicassoClient;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -23,7 +23,7 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
 
-        final String owner,telephone,image,latitude,longitude,name_seeds,price,address,area;
+        final String owner,telephone,image,latitude,longitude,address,area;
 
         final Intent i = this.getIntent();
 
@@ -32,8 +32,6 @@ public class DetailActivity extends AppCompatActivity {
         image  = i.getExtras().getString("IMAGE_KEY");
         latitude  = i.getExtras().getString("LAT_KEY");
         longitude = i.getExtras().getString("LONGT_KEY");
-        name_seeds = i.getExtras().getString("NAMESEED_KEY");
-        price = i.getExtras().getString("PRICE_KEY");
         address = i.getExtras().getString("ADDRESS_KEY");
         area = i.getExtras().getString("AREA_KEY");
 
@@ -50,8 +48,6 @@ public class DetailActivity extends AppCompatActivity {
         tvowner.setText("ชื่อ : "+owner);
         tvtelephone.setText("โทรศัพท์ : "+telephone);
 //        tvlatlong.setText("ไปยังตำแหน่ง : "+latitude+" ,"+longitude);
-        tvname_seeds.setText(name_seeds);
-        tvprice.setText("ราคา : "+price);
         tvaddress.setText("ที่อยู่ : "+ address);
         tvarea.setText(area);
         PicassoClient.downloadImage(this,image,imageView);

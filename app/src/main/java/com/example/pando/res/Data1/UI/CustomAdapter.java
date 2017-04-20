@@ -1,4 +1,4 @@
-package com.example.pando.res.UI;
+package com.example.pando.res.Data1.UI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.pando.res.DetailActivity;
-import com.example.pando.res.Object.DataOBJ;
+import com.example.pando.res.Data1.Object.DataOBJ;
 import com.example.pando.res.R;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class CustomAdapter extends RecyclerView.Adapter<MyViewHoder> {
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick() {
-                OpenDetailRestaurantActivity(DT.getOwner(),DT.getTelephone(),DT.getImage(),DT.getLatitude(),DT.getLongitude(),DT.getName_seeds(),DT.getPrice(),DT.getAddress(),DT.getArea());
+                OpenDetailRestaurantActivity(DT.getOwner(),DT.getTelephone(),DT.getImage(),DT.getLatitude(),DT.getLongitude(),DT.getAddress(),DT.getArea());
             }
         });
     }
@@ -55,7 +55,7 @@ public class CustomAdapter extends RecyclerView.Adapter<MyViewHoder> {
 
     @Override
     public int getItemCount() {
-        return Datas.size();
+        return 3;
     }
 
 
@@ -70,12 +70,10 @@ public class CustomAdapter extends RecyclerView.Adapter<MyViewHoder> {
 //    int sp_id;
 //    String place,owner,telephone,image,address,lat,longt;
 
-    private void OpenDetailRestaurantActivity( String owner,String telephone,String image,String latitude,String longitude,String name_seeds,String price,String address,String area){
+    private void OpenDetailRestaurantActivity( String owner,String telephone,String image,String latitude,String longitude,String address,String area){
 
         Intent i = new Intent(c, DetailActivity.class);
 
-        i.putExtra("PRICE_KEY",price);
-        i.putExtra("NAMESEED_KEY",name_seeds);
         i.putExtra("ADDRESS_KEY",address);
         i.putExtra("OWNER_KEY",owner);
         i.putExtra("PHONE_KEY",telephone);

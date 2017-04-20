@@ -22,7 +22,7 @@
             android:id="@+id/more"
             android:padding="5dp"
             android:textColor="#5912ff"
-            android:text="ดูเพิ่มเติม"
+            android:text="คลิกดูเพิ่มเติม"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:layout_alignParentTop="true"
@@ -35,7 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:padding="5dp"
-            android:text="แหล่งผลิตหอมแดง" />
+            android:text="ตัวอย่างแหล่งผลิตหอมแดง"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
 
     </RelativeLayout>

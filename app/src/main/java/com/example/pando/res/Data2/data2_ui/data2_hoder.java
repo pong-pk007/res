@@ -1,18 +1,18 @@
-package com.example.pando.res.UI;
+package com.example.pando.res.Data2.data2_ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pando.res.Data1.UI.ItemClickListener;
 import com.example.pando.res.R;
 
-
 /**
- * Created by pongs_000 on 28/9/2559.
+ * Created by pongs_000 on 20/4/2560.
  */
 
-public class MyViewHoder extends RecyclerView.ViewHolder implements  View.OnClickListener {
+public class data2_hoder extends RecyclerView.ViewHolder implements  View.OnClickListener {
 
 
     TextView name;
@@ -20,17 +20,12 @@ public class MyViewHoder extends RecyclerView.ViewHolder implements  View.OnClic
     ImageView img;
     ItemClickListener itemClickListener;
 
-
-
-
-    public MyViewHoder(View itemView) {
+    public data2_hoder(View itemView) {
         super(itemView);
-        name = (TextView) itemView.findViewById(R.id.name);
-        address = (TextView) itemView.findViewById(R.id.address);
-        img = (ImageView) itemView.findViewById(R.id.img);
-
+        name = (TextView) itemView.findViewById(R.id.namelist);
+        address = (TextView) itemView.findViewById(R.id.addresslist);
+        img = (ImageView) itemView.findViewById(R.id.imglist);
         itemView.setOnClickListener(this);
-
     }
 
     @Override

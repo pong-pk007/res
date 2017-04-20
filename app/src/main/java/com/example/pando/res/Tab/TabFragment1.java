@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pando.res.ListActivity;
-import com.example.pando.res.MySQL.Downloader;
+import com.example.pando.res.Data1.MySQL.Downloader;
 import com.example.pando.res.R;
 import com.example.pando.res.urlWebServer;
 
@@ -28,12 +28,16 @@ public class TabFragment1 extends Fragment {
     private static String Server = new urlWebServer().name();
     private TextView more;
     private ListView listView = null;
+    private TextView txt;
+    private AlertDialog.Builder builder;
+    AlertDialog dialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View rootView = inflater.inflate(R.layout.tab_fragment_1, container, false);
 
         listView = new ListView(getActivity());
+
 
         String[] item = {"กันทรารมย์","ยางชุม","วังหิน"};
 
@@ -44,9 +48,12 @@ public class TabFragment1 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ViewGroup vg = (ViewGroup)view;
-                TextView txt = (TextView) rootView.findViewById(R.id.txtitem);
-
-                Toast.makeText(getActivity(),txt.getText().toString(),Toast.LENGTH_LONG).show();
+                txt = (TextView) vg.findViewById(R.id.txtitem);
+                Toast.makeText(getActivity(),"เลือกอำเภอ "+txt.getText().toString(),Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+                Intent i = new Intent(getActivity(), ListActivity.class);
+                i.putExtra("district",txt.getText().toString());
+                startActivity(i);
             }
         });
 
@@ -61,7 +68,7 @@ public class TabFragment1 extends Fragment {
 
         final RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rvdata);
         rv.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL,false);
         rv.setLayoutManager(llm);
 
         final SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.sw_data);
@@ -76,16 +83,14 @@ public class TabFragment1 extends Fragment {
         //Below Method Will set background color of Loader
         swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.yellow);
 
-        new Downloader(getActivity(), Server+"osk/GET_JSON/getspdata.php",rv,swipeRefreshLayout).execute();
+        new Downloader(getActivity(), Server+"osk/GET_JSON/getspdata2.php",rv,swipeRefreshLayout).execute();
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                new Downloader(getActivity(), Server+"osk/GET_JSON/getspdata.php",rv,swipeRefreshLayout).execute();
+                new Downloader(getActivity(), Server+"osk/GET_JSON/getspdata2.php",rv,swipeRefreshLayout).execute();
             }
         });
-
-
 
         return rootView;
 
@@ -93,27 +98,21 @@ public class TabFragment1 extends Fragment {
 
     public void showDialogListView(View view){
 
-        AlertDialog.Builder builder=new
-                AlertDialog.Builder(getActivity());
+        builder=new AlertDialog.Builder(getActivity());
 
         builder.setCancelable(true);
         builder.setTitle("เลือกพื้นที่");
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent i = new Intent(getActivity(), ListActivity.class);
-                startActivity(i);
+
             }
         });
 
         builder.setView(listView);
-
-        AlertDialog dialog=builder.create();
-
+        dialog=builder.create();
         dialog.show();
-
-
 
     }
 }

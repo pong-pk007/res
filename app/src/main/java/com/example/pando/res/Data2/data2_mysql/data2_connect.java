@@ -1,4 +1,4 @@
-package com.example.pando.res.MySQL;
+package com.example.pando.res.Data2.data2_mysql;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -6,10 +6,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by pongs_000 on 28/9/2559.
+ * Created by pongs_000 on 20/4/2560.
  */
 
-public class Connector {
+public class data2_connect {
+
     public static HttpURLConnection connect(String urlAddress){
 
         try {
@@ -28,7 +29,7 @@ public class Connector {
         }catch (IOException e){
             e.printStackTrace();
         }
-    return null;
+        return null;
     }
 
 }
