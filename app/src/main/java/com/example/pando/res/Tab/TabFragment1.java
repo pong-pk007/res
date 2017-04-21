@@ -13,10 +13,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.pando.res.Contact;
 import com.example.pando.res.ListActivity;
 import com.example.pando.res.Data1.MySQL.Downloader;
 import com.example.pando.res.R;
@@ -30,6 +32,7 @@ public class TabFragment1 extends Fragment {
     private ListView listView = null;
     private TextView txt;
     private AlertDialog.Builder builder;
+    private ImageButton contact;
     AlertDialog dialog;
 
     @Override
@@ -37,6 +40,14 @@ public class TabFragment1 extends Fragment {
         final View rootView = inflater.inflate(R.layout.tab_fragment_1, container, false);
 
         listView = new ListView(getActivity());
+        contact = (ImageButton) rootView.findViewById(R.id.contactus);
+        contact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Contact.class);
+                startActivity(i);
+            }
+        });
 
 
         String[] item = {"กันทรารมย์","ยางชุม","วังหิน"};
@@ -50,7 +61,6 @@ public class TabFragment1 extends Fragment {
                 ViewGroup vg = (ViewGroup)view;
                 txt = (TextView) vg.findViewById(R.id.txtitem);
                 Toast.makeText(getActivity(),"เลือกอำเภอ "+txt.getText().toString(),Toast.LENGTH_LONG).show();
-                dialog.dismiss();
                 Intent i = new Intent(getActivity(), ListActivity.class);
                 i.putExtra("district",txt.getText().toString());
                 startActivity(i);
@@ -62,7 +72,7 @@ public class TabFragment1 extends Fragment {
         more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogListView(rootView);
+                showDialogListView(v);
             }
         });
 

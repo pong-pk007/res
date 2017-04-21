@@ -67,13 +67,16 @@ public class data2_parser extends AsyncTask<Void,Void,Boolean> {
             for (int i=0; i<ja.length(); i++){
 
                 jo=ja.getJSONObject(i);
-                String owner = jo.getString("owner");
+                String owner = jo.getString("Name");
                 String telephone = jo.getString("telephone");
                 String image = jo.getString("image");
                 String address = jo.getString("address");
                 String lat = jo.getString("latitude");
                 String longt = jo.getString("longitude");
                 String area = jo.getString("area");
+                String name_seeds = jo.getString("name_seeds");
+                String price = jo.getString("price");
+                String number = jo.getString("number");
 
                 dataOBJ = new data2_object();
 
@@ -84,6 +87,9 @@ public class data2_parser extends AsyncTask<Void,Void,Boolean> {
                 dataOBJ.setLatitude2(lat);
                 dataOBJ.setLongitude2(longt);
                 dataOBJ.setArea2(area);
+                dataOBJ.setName_seeds2(name_seeds);
+                dataOBJ.setPrice2(price);
+                dataOBJ.setNumber2(number);
 
                 Datas.add(dataOBJ);
 

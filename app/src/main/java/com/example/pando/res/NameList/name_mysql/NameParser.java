@@ -1,4 +1,4 @@
-package com.example.pando.res.Data1.MySQL;
+package com.example.pando.res.NameList.name_mysql;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -6,8 +6,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
-import com.example.pando.res.Data1.Object.DataOBJ;
 import com.example.pando.res.Data1.UI.CustomAdapter;
+import com.example.pando.res.NameList.name_object.NameObject;
+import com.example.pando.res.NameList.name_ui.NameAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,18 +17,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 /**
- * Created by pongs_000 on 28/9/2559.
+ * Created by pongs_000 on 21/4/2560.
  */
 
-public class DataParser extends AsyncTask<Void,Void,Boolean> {
-        Context c;
+public class NameParser extends AsyncTask<Void,Void,Boolean>{
+    Context c;
     String jsonData;
     RecyclerView rv;
     SwipeRefreshLayout swipeRefreshLayout;
 
-    ArrayList<DataOBJ> Datas = new ArrayList<>();
+    ArrayList<NameObject> Datas = new ArrayList<>();
 
-    public DataParser(Context c, String jsonData, RecyclerView rv, SwipeRefreshLayout swipeRefreshLayout) {
+    public NameParser(Context c, String jsonData, RecyclerView rv, SwipeRefreshLayout swipeRefreshLayout) {
         this.c = c;
         this.jsonData = jsonData;
         this.rv = rv;
@@ -47,7 +48,7 @@ public class DataParser extends AsyncTask<Void,Void,Boolean> {
 
         if (isParsed){
             //bind
-            rv.setAdapter(new CustomAdapter(c,Datas));
+            rv.setAdapter(new NameAdapter(c,Datas));
 
         }else {
 
@@ -62,42 +63,25 @@ public class DataParser extends AsyncTask<Void,Void,Boolean> {
             JSONObject jo;
 
             Datas.clear();
-            DataOBJ dataOBJ;
+            NameObject dataOBJ;
 
             for (int i=0; i<ja.length(); i++){
 
                 jo=ja.getJSONObject(i);
-                String owner = jo.getString("Name");
-                String telephone = jo.getString("telephone");
-                String image = jo.getString("image");
-                String address = jo.getString("address");
-                String lat = jo.getString("latitude");
-                String longt = jo.getString("longitude");
-                String area = jo.getString("area");
                 String name_seeds = jo.getString("name_seeds");
-                String price = jo.getString("price");
-                String number = jo.getString("number");
+                String image = jo.getString("image");
+                String description = jo.getString("description");
 
-                dataOBJ = new DataOBJ();
-
-                dataOBJ.setOwner(owner);
-                dataOBJ.setTelephone(telephone);
-                dataOBJ.setImage(image);
-                dataOBJ.setAddress(address);
-                dataOBJ.setLatitude(lat);
-                dataOBJ.setLongitude(longt);
-                dataOBJ.setArea(area);
+                dataOBJ = new NameObject();
                 dataOBJ.setName_seeds(name_seeds);
-                dataOBJ.setPrice(price);
-                dataOBJ.setNumber(number);
-
+                dataOBJ.setImageName(image);
+                dataOBJ.setDescription(description);
                 Datas.add(dataOBJ);
-
             }
             return true;
 
         }catch (JSONException e){
-        e.printStackTrace();
+            e.printStackTrace();
 
         }
         return false;

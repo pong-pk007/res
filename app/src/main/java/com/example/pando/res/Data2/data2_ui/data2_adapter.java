@@ -46,11 +46,10 @@ public class data2_adapter extends RecyclerView.Adapter<data2_hoder> {
         data2Picasso.downloadImage(c,DT.getImage2(),holder.img);
 
 
-
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick() {
-                OpenDetailRestaurantActivity(DT.getOwner2(),DT.getTelephone2(),DT.getImage2(),DT.getLatitude2(),DT.getLongitude2(),DT.getAddress2(),DT.getArea2());
+                OpenDetailRestaurantActivity(DT.getOwner2(),DT.getTelephone2(),DT.getImage2(),DT.getLatitude2(),DT.getLongitude2(),DT.getAddress2(),DT.getArea2(),DT.getName_seeds2(),DT.getPrice2(),DT.getNumber2());
             }
         });
     }
@@ -73,7 +72,7 @@ public class data2_adapter extends RecyclerView.Adapter<data2_hoder> {
 //    int sp_id;
 //    String place,owner,telephone,image,address,lat,longt;
 
-    private void OpenDetailRestaurantActivity( String owner,String telephone,String image,String latitude,String longitude,String address,String area){
+    private void OpenDetailRestaurantActivity( String owner,String telephone,String image,String latitude,String longitude,String address,String area, String nameseed, String price , String number){
 
         Intent i = new Intent(c, DetailActivity.class);
 
@@ -84,6 +83,9 @@ public class data2_adapter extends RecyclerView.Adapter<data2_hoder> {
         i.putExtra("LAT_KEY" ,latitude);
         i.putExtra("LONGT_KEY", longitude);
         i.putExtra("AREA_KEY",area);
+        i.putExtra("nameseed",nameseed);
+        i.putExtra("price",price);
+        i.putExtra("number",number);
 
         c.startActivity(i);
     }

@@ -43,11 +43,14 @@
                 android:value=".Contact" />
         </activity>
         <activity android:name=".ListActivity">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ListActivity" />
-
+        </activity>
+        <activity android:name=".Main2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main2Activity" />
         </activity>
     </application>
 

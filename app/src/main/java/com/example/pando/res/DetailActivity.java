@@ -13,7 +13,7 @@ import com.example.pando.res.Data1.UI.PicassoClient;
 
 public class DetailActivity extends AppCompatActivity {
 
-    TextView tvowner,tvtelephone,tvlatlong,tvname_seeds,tvprice,tvaddress, tvarea;
+    TextView tvowner,tvtelephone,tvlatlong,tvname_seeds,tvprice,tvaddress, tvarea,tvnumber;
     ImageView imageView;
     ImageButton googleMap;
 
@@ -23,7 +23,8 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
 
-        final String owner,telephone,image,latitude,longitude,address,area;
+        final String owner,telephone,image,latitude,longitude,address,area,nameseed,price,number;
+        String nameType = null;
 
         final Intent i = this.getIntent();
 
@@ -34,6 +35,10 @@ public class DetailActivity extends AppCompatActivity {
         longitude = i.getExtras().getString("LONGT_KEY");
         address = i.getExtras().getString("ADDRESS_KEY");
         area = i.getExtras().getString("AREA_KEY");
+        nameseed = i.getExtras().getString("nameseed");
+        price = i.getExtras().getString("price");
+        number = i.getExtras().getString("number");
+
 
         tvowner = (TextView) findViewById(R.id.tvname);
         tvtelephone = (TextView) findViewById(R.id.tvphone);
@@ -44,12 +49,29 @@ public class DetailActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imgdata);
         googleMap = (ImageButton) findViewById(R.id.googleMap);
         tvarea = (TextView) findViewById(R.id.tvarea);
+        tvnumber = (TextView) findViewById(R.id.tvnumber);
+
+
+        if (nameseed.equals("3")){
+            tvname_seeds.setText("พันธู์หอม :พื้นบ้าน");
+        }else if(nameseed.equals("4")){
+            tvname_seeds.setText("พันธู์หอม :ลับแล");
+        }else if(nameseed.equals("5")){
+            tvname_seeds.setText("พันธู์หอม :น้ำปาด");
+        }else {
+            tvname_seeds.setText("พันธู์หอม :"+nameseed);
+
+        }
+
 
         tvowner.setText("ชื่อ : "+owner);
         tvtelephone.setText("โทรศัพท์ : "+telephone);
 //        tvlatlong.setText("ไปยังตำแหน่ง : "+latitude+" ,"+longitude);
         tvaddress.setText("ที่อยู่ : "+ address);
-        tvarea.setText(area);
+        tvarea.setText("จำนวนไร่ :"+area);
+        tvprice.setText("ราคา :"+price);
+        tvnumber.setText("ปริมาณหอม :"+number);
+
         PicassoClient.downloadImage(this,image,imageView);
 
         googleMap.setOnClickListener(new View.OnClickListener() {

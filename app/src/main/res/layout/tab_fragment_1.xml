@@ -6,6 +6,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
@@ -13,7 +17,7 @@
 
 
     <RelativeLayout
-        android:layout_margin="10dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -21,6 +25,7 @@
         <TextView
             android:id="@+id/more"
             android:padding="5dp"
+            android:textSize="18dp"
             android:textColor="#5912ff"
             android:text="คลิกดูเพิ่มเติม"
             android:layout_height="wrap_content"
@@ -31,10 +36,12 @@
 
         <TextView
             android:id="@+id/textView"
+            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:padding="5dp"
+            android:textSize="18dp"
             android:text="ตัวอย่างแหล่งผลิตหอมแดง"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -47,6 +54,7 @@
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/sw_data"
+        android:layout_marginTop="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="210dp">
@@ -62,7 +70,29 @@
         </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
+
+        <android.support.v7.widget.CardView
+            android:layout_margin="7dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <ImageButton
+                android:padding="5dp"
+                android:id="@+id/contactus"
+                android:layout_width="match_parent"
+                android:layout_height="186dp"
+               android:background="@drawable/contact_us" />
+
+
+        </android.support.v7.widget.CardView>
+
+
     </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
 
 
 </android.support.design.widget.CoordinatorLayout>

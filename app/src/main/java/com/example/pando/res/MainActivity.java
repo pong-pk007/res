@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("เเหล่งผลิตหอมแดง").setIcon(R.drawable.ic_place));
-        tabLayout.addTab(tabLayout.newTab().setText("ติดต่อเรา").setIcon(R.drawable.ic_call_white));
+        tabLayout.addTab(tabLayout.newTab().setText("พันธู์หอมแดง").setIcon(R.drawable.logo));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);

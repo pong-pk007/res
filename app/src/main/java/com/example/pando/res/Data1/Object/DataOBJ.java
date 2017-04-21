@@ -7,7 +7,7 @@ package com.example.pando.res.Data1.Object;
 public class DataOBJ {
 
 
-    String owner,telephone,image,latitude,longitude,address,area;
+    String owner,telephone,image,latitude,longitude,address,area,name_seeds,price,number;
 
     public String getArea() {
         return area;
@@ -63,5 +63,29 @@ public class DataOBJ {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getName_seeds() {
+        return name_seeds;
+    }
+
+    public void setName_seeds(String name_seeds) {
+        this.name_seeds = name_seeds;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

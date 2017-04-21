@@ -6,7 +6,7 @@ package com.example.pando.res.Data2.data2_object;
 
 public class data2_object {
 
-    String owner2,telephone2,image2,latitude2,longitude2,address2,area2;
+    String owner2,telephone2,image2,latitude2,longitude2,address2,area2,name_seeds2,price2,number2;
 
     public String getOwner2() {
         return owner2;
@@ -62,5 +62,29 @@ public class data2_object {
 
     public void setArea2(String area2) {
         this.area2 = area2;
+    }
+
+    public String getName_seeds2() {
+        return name_seeds2;
+    }
+
+    public void setName_seeds2(String name_seeds2) {
+        this.name_seeds2 = name_seeds2;
+    }
+
+    public String getPrice2() {
+        return price2;
+    }
+
+    public void setPrice2(String price2) {
+        this.price2 = price2;
+    }
+
+    public String getNumber2() {
+        return number2;
+    }
+
+    public void setNumber2(String number2) {
+        this.number2 = number2;
     }
 }
