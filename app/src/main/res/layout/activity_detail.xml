@@ -125,6 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ชนิดพันธ์"
+                        android:textStyle="bold"
                         android:id="@+id/tvdescriptitle"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="10dp"
@@ -164,24 +165,13 @@
                         android:orientation="vertical"
                         android:weightSum="1">
 
-                        <ImageButton
+                        <fragment
                             android:id="@+id/googleMap"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="5dp"
-                            android:elevation="7dp"
-                            android:background="@drawable/pin_icon" />
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="230dp"
+                            android:layout_weight="1" />
 
-                        <!--<TextView-->
-                            <!--android:padding="5dp"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:text="พิกัด"-->
-                            <!--android:id="@+id/tvlatlongt"-->
-                            <!--android:layout_marginLeft="15dp"-->
-                            <!--android:layout_marginTop="10dp"-->
-                            <!--android:layout_marginBottom="10dp"/>-->
 
                     </LinearLayout>
 

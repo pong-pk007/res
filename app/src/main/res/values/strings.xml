@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">หอมแดง กันทรารมณ์</string>
+    <string name="app_name">หอมแดงจังหวัดศรีสะเกษ</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

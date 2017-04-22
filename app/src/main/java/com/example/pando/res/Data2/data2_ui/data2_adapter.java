@@ -49,7 +49,7 @@ public class data2_adapter extends RecyclerView.Adapter<data2_hoder> {
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick() {
-                OpenDetailRestaurantActivity(DT.getOwner2(),DT.getTelephone2(),DT.getImage2(),DT.getLatitude2(),DT.getLongitude2(),DT.getAddress2(),DT.getArea2(),DT.getName_seeds2(),DT.getPrice2(),DT.getNumber2());
+                OpenDetailRestaurantActivity(DT.getOwner2(),DT.getTelephone2(),DT.getImage2(),DT.getLatitude2(),DT.getLongitude2(),DT.getAddress2(),DT.getArea2(),DT.getName_seeds2(),DT.getPrice2(),DT.getNumber2(),DT.getData_id2());
             }
         });
     }
@@ -72,10 +72,10 @@ public class data2_adapter extends RecyclerView.Adapter<data2_hoder> {
 //    int sp_id;
 //    String place,owner,telephone,image,address,lat,longt;
 
-    private void OpenDetailRestaurantActivity( String owner,String telephone,String image,String latitude,String longitude,String address,String area, String nameseed, String price , String number){
+    private void OpenDetailRestaurantActivity( String owner,String telephone,String image,String latitude,String longitude,String address,String area, String nameseed, String price , String number,String data_id){
 
         Intent i = new Intent(c, DetailActivity.class);
-
+        i.putExtra("data_id",data_id);
         i.putExtra("ADDRESS_KEY",address);
         i.putExtra("OWNER_KEY",owner);
         i.putExtra("PHONE_KEY",telephone);

@@ -47,7 +47,7 @@ public class CustomAdapter extends RecyclerView.Adapter<MyViewHoder> {
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onItemClick() {
-                OpenDetailRestaurantActivity(DT.getOwner(),DT.getTelephone(),DT.getImage(),DT.getLatitude(),DT.getLongitude(),DT.getAddress(),DT.getArea(),DT.getName_seeds(),DT.getPrice(),DT.getNumber());
+                OpenDetailRestaurantActivity(DT.getOwner(),DT.getTelephone(),DT.getImage(),DT.getLatitude(),DT.getLongitude(),DT.getAddress(),DT.getArea(),DT.getName_seeds(),DT.getPrice(),DT.getNumber(),DT.getData_id());
             }
         });
     }
@@ -70,10 +70,11 @@ public class CustomAdapter extends RecyclerView.Adapter<MyViewHoder> {
 //    int sp_id;
 //    String place,owner,telephone,image,address,lat,longt;
 
-    private void OpenDetailRestaurantActivity(String owner,String telephone,String image,String latitude,String longitude,String address,String area,String nameseed, String price , String number){
+    private void OpenDetailRestaurantActivity(String owner,String telephone,String image,String latitude,String longitude,String address,String area,String nameseed, String price , String number, String data_id){
 
         Intent i = new Intent(c, DetailActivity.class);
 
+        i.putExtra("data_id",data_id);
         i.putExtra("ADDRESS_KEY",address);
         i.putExtra("OWNER_KEY",owner);
         i.putExtra("PHONE_KEY",telephone);

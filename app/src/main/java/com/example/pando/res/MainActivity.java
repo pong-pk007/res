@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarType);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("หอมแดง กันทรารมย์");
+        getSupportActionBar().setTitle("หอมแดง ศรีสะเกษ");
         getSupportActionBar().setSubtitle("ยินดีต้อนรับเข้าสู่แอพพลิเคชั่นแนะนำแหล่งผลิตหอมแดง");
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);

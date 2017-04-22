@@ -67,6 +67,7 @@ public class DataParser extends AsyncTask<Void,Void,Boolean> {
             for (int i=0; i<ja.length(); i++){
 
                 jo=ja.getJSONObject(i);
+                String data_id = jo.getString("data_sp_id");
                 String owner = jo.getString("Name");
                 String telephone = jo.getString("telephone");
                 String image = jo.getString("image");
@@ -80,6 +81,7 @@ public class DataParser extends AsyncTask<Void,Void,Boolean> {
 
                 dataOBJ = new DataOBJ();
 
+                dataOBJ.setData_id(data_id);
                 dataOBJ.setOwner(owner);
                 dataOBJ.setTelephone(telephone);
                 dataOBJ.setImage(image);
